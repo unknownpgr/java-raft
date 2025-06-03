@@ -1,6 +1,6 @@
-# Java Raft Hello World
+# Java Raft Key-Value Store
 
-A simple Java library that provides a hello world message.
+A simple thread-safe key-value storage implementation in Java.
 
 ## Installation
 
@@ -21,15 +21,42 @@ dependencies {
 ## Usage
 
 ```java
-import com.github.unknownpgr.raft.HelloWorld;
+import com.github.unknownpgr.raft.KeyValueStore;
+import java.util.Optional;
 
 public class Main {
     public static void main(String[] args) {
-        String message = HelloWorld.sayHello();
-        System.out.println(message); // Prints: Hello, World!
+        // Create a new key-value store
+        KeyValueStore store = new KeyValueStore();
+
+        // Store a value
+        store.put("name", "John Doe");
+
+        // Retrieve a value
+        Optional<String> value = store.get("name");
+        value.ifPresent(System.out::println); // Prints: John Doe
+
+        // Check if a key exists
+        boolean exists = store.containsKey("name"); // Returns: true
+
+        // Remove a value
+        String removed = store.remove("name");
+
+        // Get the number of entries
+        int size = store.size();
+
+        // Clear all entries
+        store.clear();
     }
 }
 ```
+
+## Features
+
+- Thread-safe operations using ConcurrentHashMap
+- Null safety with Optional for get operations
+- Basic CRUD operations (Create, Read, Update, Delete)
+- Size tracking and store clearing capabilities
 
 ## Publishing
 
