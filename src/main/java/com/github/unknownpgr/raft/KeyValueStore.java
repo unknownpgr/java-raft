@@ -9,6 +9,10 @@ import java.util.Optional;
 public class KeyValueStore {
   private final ConcurrentHashMap<String, String> store;
 
+  /**
+   * Creates a new empty key-value store.
+   * The store is thread-safe and can be safely accessed from multiple threads.
+   */
   public KeyValueStore() {
     this.store = new ConcurrentHashMap<>();
   }
