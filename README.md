@@ -10,10 +10,6 @@ Add the following to your `build.gradle`:
 repositories {
     maven {
         url = uri("https://maven.pkg.github.com/unknownpgr/java-raft")
-        credentials {
-            username = System.getenv("GITHUB_ACTOR")
-            password = System.getenv("GITHUB_TOKEN")
-        }
     }
 }
 
@@ -43,4 +39,8 @@ To publish a new version:
 2. Set the following environment variables:
    - `GITHUB_ACTOR`: Your GitHub username
    - `GITHUB_TOKEN`: Your GitHub personal access token with `write:packages` scope
-3. Run `./gradlew publish` 
+3. Run `./gradlew publish`
+
+## License
+
+This project is licensed under the Apache License 2.0 - see the LICENSE file for details. 
