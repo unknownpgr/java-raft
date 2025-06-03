@@ -25,6 +25,9 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       
+      - name: Generate Gradle Wrapper
+        run: gradle wrapper
+      
       - name: Extract version
         id: version
         run: |
